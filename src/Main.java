@@ -10,7 +10,7 @@ public class Main {
         List<Edge> edges = Arrays.asList(
                 new Edge(1, 2, 6),
                 new Edge(2, 3, 9),
-                new Edge(4, 4, 4),
+                new Edge(3, 4, 4),
                 new Edge(4, 5, 4),
                 new Edge(1, 6, 3),
                 new Edge(6, 7, 2),
@@ -30,7 +30,7 @@ public class Main {
                 new Edge(6, 8, 9)
         );
 
-        int n = 10; // Anzahl Knoten
+        int n = edges.size()/2; // Anzahl Knoten
         Graph graph = new Graph(edges, n);
 
         graph.tiefensuche();
