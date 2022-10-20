@@ -1,3 +1,4 @@
+import javax.swing.plaf.IconUIResource;
 import java.util.*;
 
 public class Graph {
@@ -10,18 +11,24 @@ public class Graph {
         edgeList = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             edgeList.add(new ArrayList<>());
+            for (int j = 0; j < n; j++) {
+                edgeList.get(i).add(0);
+            }
         }
 
         for (Edge edge: edges) {
             int n1 = edge.node1;
             int n2 = edge.node2;
 
-            edgeList.get(n1).add(n2);
-            edgeList.get(n2).add(n1);
+            //edgeList.get(n1).add(n2);
+            //edgeList.get(n2).add(n1);
+
+            edgeList.get(n1).set(n2, edge.value);
+            edgeList.get(n2).set(n1, edge.value);
 
             // damit es ein ungerichteter Graph ist
-            edgeList.get(n2).add(n2);
-            edgeList.get(n1).add(n1);
+            //edgeList.get(n2).add(n2);
+            //edgeList.get(n1).add(n1);
 
             //this.edges.get(n1).add(edge);
             //this.edges.get(n2).add(edge);
@@ -37,42 +44,68 @@ public class Graph {
         int n2 = edge.node2;
 
         // falls Ein neuer Knoten finzugefügt wurde:
-        n = Math.max(n, n1);
-        n = Math.max(n, n2);
+        n = Math.max(n, Math.max(n1, n2));
 
-        edgeList.get(n1).add(n2);
-        edgeList.get(n2).add(n1);
+        for (int i = edgeList.size(); i <= 2*n; i++) {
+            edgeList.add(new ArrayList<>());
+            for (int j = edgeList.get(i).size(); j <= 2*n; j++) {
+                edgeList.get(i).add(0);
+            }
+        }
 
-        // damit es ein ungerichteter Graph ist
-        edgeList.get(n2).add(n2);
-        edgeList.get(n1).add(n1);
+        edgeList.get(n1).set(n2, edge.value);
+        edgeList.get(n2).set(n1, edge.value);
+    }
 
-        //this.edges.get(n1).add(edge);
-        //this.edges.get(n2).add(edge);
+    public String toString() {
+        StringBuilder out = new StringBuilder("  ");
+        for (int i = 0; i < n; i++) {
+            out.append(i).append(" ");
+        }
+        out.append("\n");
+        for (int i = 0; i < n; i++) {
+            out.append(i).append(" ");
+            for (int j = 0; j < n; j++) {
+                out.append(edgeList.get(i).get(j)).append(" ");
+            }
+            out.append("\n");
+        }
+        return String.valueOf(out);
     }
 
     public void prim() {
         List<Edge> edges = Collections.emptyList();
         int start = 0;
         Graph mst = new Graph(edges, 0);
+        boolean[] visited = new boolean[n]; // besuchte Nodes
 
-        for (List<Integer> m: edgeList) {
-            if (!m.isEmpty()) {
-                start = m.get(0);
-                return;
+        while (n != mst.getN()) {
+            int min = Integer.MAX_VALUE;
+            int minNode = 0;
+            for (int i = 0; i < edgeList.get(start).size(); i++) {
+                if (edgeList.get(start).get(i) != 0 && !visited[i]) {
+                    if (edgeList.get(start).get(i) < min) {
+                        min = edgeList.get(start).get(i);
+                        minNode = i;
+                    }
+                }
             }
+
+            if (min == Integer.MAX_VALUE) break;
+
+            visited[minNode] = true;
+            mst.addEdge(new Edge(start, minNode, min));
+            start = minNode;
         }
 
-        while (n != mst.n) {
-            Edge minEdge = new Edge(0,0, Integer.MAX_VALUE);
-            for (Edge edge: this.edges.get(start)){
-                if (edge.value < minEdge.value) minEdge = edge;
-            };
-
-            mst.addEdge(minEdge);
-        }
-
+        System.out.println("");
+        System.out.print("Prim out: ");
         mst.tiefensuche();
+        System.out.println("\n");
+        System.out.print(mst.toString());
+        System.out.println("\n");
+        System.out.print(toString());
+
     }
 
     public List<Integer> tiefensuche() {
@@ -94,9 +127,11 @@ public class Graph {
         System.out.print(node + " ");
         nodeList.add(node);
 
-        for (int u: edgeList.get(node)) {
-            if (!visited[u]) {
-                tiefensuche(u, visited, nodeList);
+        for (int i = 0; i < n; i++) {
+            if (edgeList.get(node).get(i) != 0) {
+                if (!visited[i]) {
+                    tiefensuche(i, visited, nodeList);
+                }
             }
         }
     }
