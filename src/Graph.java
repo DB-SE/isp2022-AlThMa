@@ -1,4 +1,3 @@
-import javax.swing.plaf.IconUIResource;
 import java.util.*;
 
 public class Graph {
@@ -46,9 +45,9 @@ public class Graph {
         // falls Ein neuer Knoten finzugefügt wurde:
         n = Math.max(n, Math.max(n1, n2));
 
-        for (int i = edgeList.size(); i <= 2*n; i++) {
+        for (int i = edgeList.size(); i <= 3*n; i++) {
             edgeList.add(new ArrayList<>());
-            for (int j = edgeList.get(i).size(); j <= 2*n; j++) {
+            for (int j = edgeList.get(i).size(); j <= 3*n; j++) {
                 edgeList.get(i).add(0);
             }
         }
@@ -71,6 +70,35 @@ public class Graph {
             out.append("\n");
         }
         return String.valueOf(out);
+    }
+
+    public void minimalTree(){
+        boolean[] visited = new boolean[n]; // besuchte Nodes
+        List<Edge> edges = Collections.emptyList();
+        Graph mst = new Graph(edges, n);
+
+        for (int i = 0; i < n; i++) {
+            if (!visited[i]) {
+                int min = Integer.MAX_VALUE;
+                int node = 0;
+                for (int j = 0; j < n; j++) {
+                    if (edgeList.get(i).get(j) != 0) {
+                        if (edgeList.get(i).get(j) < min) {
+                            min = edgeList.get(i).get(j);
+                            node = j;
+                        }
+                    }
+                }
+                mst.addEdge(new Edge(i, node, min));
+                visited[node] = true;
+            }
+        }
+
+        System.out.println();
+        System.out.println("Minimal Baum");
+        mst.tiefensuche();
+        System.out.println("\n");
+        System.out.println(mst.toString());
     }
 
     public void prim() {
@@ -98,7 +126,7 @@ public class Graph {
             start = minNode;
         }
 
-        System.out.println("");
+        System.out.println();
         System.out.print("Prim out: ");
         mst.tiefensuche();
         System.out.println("\n");

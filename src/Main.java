@@ -10,7 +10,7 @@ public class Main {
         List<Edge> edges = Arrays.asList(
                 new Edge(1, 2, 6),
                 new Edge(2, 3, 9),
-                new Edge(4, 4, 4),
+                new Edge(4, 3, 4),
                 new Edge(4, 5, 4),
                 new Edge(1, 6, 3),
                 new Edge(6, 7, 2),
@@ -27,7 +27,8 @@ public class Main {
                 new Edge(0, 5, 3),
                 new Edge(8, 5, 10),
                 new Edge(9, 5, 18),
-                new Edge(6, 8, 9)
+                new Edge(6, 8, 9),
+                new Edge(2, 7, 2)
         );
 
         int n = 10; // Anzahl Knoten
@@ -35,6 +36,8 @@ public class Main {
 
         graph.tiefensuche();
 
-        graph.prim();
+        //graph.prim();
+
+        graph.minimalTree();
     }
 }
