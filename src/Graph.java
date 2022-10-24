@@ -101,6 +101,7 @@ public class Graph {
         System.out.println(mst.toString());
     }
 
+    // Funktioniert nicht, bitte ignorieren
     public void prim() {
         List<Edge> edges = Collections.emptyList();
         int start = 0;
