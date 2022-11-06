@@ -76,6 +76,12 @@ public class Graph {
     }
 
     public void minimalTree(){
+
+        //(minimal) spanning trees only exist for undirected graphs
+        if(this.configuration.isDirected()){
+            System.err.println("Directed graohs do not support spanning trees");
+        }
+
         boolean[] visited = new boolean[n]; // besuchte Nodes
         List<Edge> edges = Collections.emptyList();
         Graph mst = new Graph(edges, n, this.configuration);
