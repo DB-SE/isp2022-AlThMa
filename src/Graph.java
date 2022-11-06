@@ -3,10 +3,13 @@ import java.util.*;
 public class Graph {
     private List<List<Integer>> edgeList;
     private List<List<Edge>> edges;
+    private final Configuration configuration;
     private int n;
 
-    public Graph(List<Edge> edges, int n) {
+    public Graph(List<Edge> edges, int n, Configuration c) {
         this.n = n;
+        this.configuration = c;
+
         edgeList = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             edgeList.add(new ArrayList<>());
@@ -75,7 +78,7 @@ public class Graph {
     public void minimalTree(){
         boolean[] visited = new boolean[n]; // besuchte Nodes
         List<Edge> edges = Collections.emptyList();
-        Graph mst = new Graph(edges, n);
+        Graph mst = new Graph(edges, n, this.configuration);
 
         for (int i = 0; i < n; i++) {
             if (!visited[i]) {
@@ -105,7 +108,7 @@ public class Graph {
     public void prim() {
         List<Edge> edges = Collections.emptyList();
         int start = 0;
-        Graph mst = new Graph(edges, 0);
+        Graph mst = new Graph(edges, 0, this.configuration);
         boolean[] visited = new boolean[n]; // besuchte Nodes
 
         while (n != mst.getN()) {

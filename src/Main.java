@@ -1,12 +1,26 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 // inspiration: https://www.techiedelight.com/de/depth-first-search/
 
 public class Main {
 
     public static void main(String[] args) {
+
+        //different options for graph
+        boolean directed = false;
+        boolean weighted = false;
+        boolean labeled = false;
+
+        //iterate over options
+        for (String argument : args) {
+            if(Objects.equals(argument, "-d")) directed = true;
+            if(Objects.equals(argument, "-w")) weighted = true;
+            if(Objects.equals(argument, "-l")) labeled = true;
+        }
+
         List<Edge> edges = Arrays.asList(
                 new Edge(1, 2, 6),
                 new Edge(2, 3, 9),
@@ -32,7 +46,11 @@ public class Main {
         );
 
         int n = 10; // Anzahl Knoten
-        Graph graph = new Graph(edges, n);
+        //TODO calculate n automatically?
+
+        Configuration configuration = new Configuration( directed, labeled, weighted );
+
+        Graph graph = new Graph(edges, n, configuration);
 
         graph.tiefensuche();
 
