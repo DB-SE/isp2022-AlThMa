@@ -33,11 +33,11 @@ public class GraphRoot {
 		GraphArt graph = new GraphArt(edges, n);
 		
 		// #if DFS 
-//@		graph.tiefensuche();
+		graph.tiefensuche();
 		// #endif
 		
 		// #if MST 
-//@		graph.minimalTree(graph);
+		graph.minimalTree(graph);
 		// #endif
 	}
 }
