@@ -1,6 +1,7 @@
 public class Edge {
     int node1, node2, value;
     boolean direction;
+    int r, g, b;
     public static final boolean NODE_1 = false;
     public static final boolean NODE_2 = true;
 

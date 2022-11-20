@@ -3,6 +3,7 @@ import java.util.List;
 
 
 public class GraphRoot {
+	
 	public static void main(String[] args) {
 	
         List<Edge> edges = Arrays.asList(
@@ -29,15 +30,22 @@ public class GraphRoot {
                 new Edge(2, 7, 2)
         );
         int n = 10;
-		
+        
 		GraphArt graph = new GraphArt(edges, n);
 		
 		// #if DFS 
-		graph.tiefensuche();
+		//graph.tiefensuche();
 		// #endif
 		
 		// #if MST 
-		graph.minimalTree(graph);
+//@		graph.minimalTree(graph);
 		// #endif
+		
+		System.out.println(graph.toAdjMatrix());
+		
+		// Farb Test
+		System.out.println(ConsoleColors.RED + "RED COLORED" +
+				ConsoleColors.RESET + " NORMAL");
+	
 	}
 }

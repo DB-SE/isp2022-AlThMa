@@ -12,20 +12,22 @@
 	</properties>
 	<struct>
 		<and abstract="true" mandatory="true" name="GraphRoot">
-			<alt mandatory="true" name="GraphArt">
+			<alt abstract="true" mandatory="true" name="GraphArt">
 				<feature name="Directed"/>
 				<feature name="Undirected"/>
 			</alt>
-			<and name="Algorithmus">
+			<and abstract="true" name="Algorithmus">
 				<feature name="DFS"/>
 				<feature name="MST"/>
 			</and>
-			<and name="Markierung">
+			<and abstract="true" name="Markierung">
 				<feature name="Labled"/>
 				<feature name="Weighted"/>
-				<feature name="Colored"/>
+				<and name="Colored">
+					<feature name="ShowColors"/>
+				</and>
 			</and>
-			<and name="Funktionen">
+			<and abstract="true" name="Funktionen">
 				<feature name="Adjazenzmatrix"/>
 			</and>
 		</and>

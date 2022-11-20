@@ -2,15 +2,16 @@
 <configuration>
 	<feature automatic="selected" name="GraphRoot"/>
 	<feature automatic="selected" name="GraphArt"/>
-	<feature automatic="unselected" name="Directed"/>
-	<feature automatic="selected" manual="selected" name="Undirected"/>
+	<feature manual="selected" name="Directed"/>
+	<feature automatic="unselected" name="Undirected"/>
 	<feature automatic="selected" manual="selected" name="Algorithmus"/>
 	<feature manual="selected" name="DFS"/>
-	<feature manual="selected" name="MST"/>
-	<feature name="Markierung"/>
-	<feature name="Labled"/>
+	<feature automatic="unselected" name="MST"/>
+	<feature automatic="selected" name="Markierung"/>
+	<feature manual="selected" name="Labled"/>
 	<feature name="Weighted"/>
-	<feature name="Colored"/>
+	<feature automatic="selected" name="Colored"/>
+	<feature manual="selected" name="ShowColors"/>
 	<feature automatic="selected" name="Funktionen"/>
-	<feature automatic="selected" name="Adjazenzmatrix"/>
+	<feature manual="selected" name="Adjazenzmatrix"/>
 </configuration>

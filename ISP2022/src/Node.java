@@ -5,30 +5,30 @@ public class Node {
     private static int biggest_label;
     
     //#if Labled 
-//@    private int label;
+    private int label;
     //#endif
     
     //#if Colored 
-//@    private String color;
+    private String color;
     //#endif
 
     public Node () {
         next = new ArrayList<>();
         //#if Labled 
-//@        label = biggest_label++;
+        label = biggest_label++;
         //#endif
     }
 
     //#if Labled 
-//@    public int getLabel() {
-//@        return label;
-//@    }
+    public int getLabel() {
+        return label;
+    }
     //#endif
     
     //#if Colored
-//@    	public String getColor() {
-//@    		return color;
-//@    	}
+    	public String getColor() {
+    		return color;
+    	}
     //#endif
     
     void addNext(Node node) {
