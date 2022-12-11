@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+	<properties>
+		<graphics key="autolayoutconstraints" value="false"/>
+		<graphics key="legendautolayout" value="true"/>
+		<graphics key="showconstraints" value="true"/>
+		<graphics key="showshortnames" value="false"/>
+		<graphics key="layout" value="horizontal"/>
+		<graphics key="showcollapsedconstraints" value="true"/>
+		<graphics key="legendhidden" value="false"/>
+		<graphics key="layoutalgorithm" value="1"/>
+	</properties>
+	<struct>
+		<and abstract="true" mandatory="true" name="GraphRoot">
+			<alt abstract="true" mandatory="true" name="GraphArt">
+				<feature name="Directed"/>
+				<feature name="Undirected"/>
+			</alt>
+			<and abstract="true" name="Algorithmus">
+				<feature name="DFS"/>
+				<feature name="BFS"/>
+				<feature name="MST"/>
+			</and>
+			<and abstract="true" name="Markierung">
+				<feature name="Labled"/>
+				<feature name="Weighted"/>
+				<and name="Colored">
+					<feature name="ShowColors"/>
+				</and>
+			</and>
+			<and abstract="true" name="Funktionen">
+				<feature name="Adjazenzmatrix"/>
+			</and>
+		</and>
+	</struct>
+	<constraints>
+		<rule>
+			<imp>
+				<var>MST</var>
+				<var>Adjazenzmatrix</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>Directed</var>
+				<not>
+					<var>MST</var>
+				</not>
+			</imp>
+		</rule>
+	</constraints>
+</featureModel>
