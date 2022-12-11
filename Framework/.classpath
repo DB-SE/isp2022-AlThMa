@@ -2,5 +2,13 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/Adjazenzmatrix.jar"/>
+	<classpathentry kind="lib" path="lib/BFS.jar"/>
+	<classpathentry kind="lib" path="lib/Colored.jar"/>
+	<classpathentry kind="lib" path="lib/DFS.jar"/>
+	<classpathentry kind="lib" path="lib/Labled.jar"/>
+	<classpathentry kind="lib" path="lib/MST.jar"/>
+	<classpathentry kind="lib" path="lib/Undirected.jar"/>
+	<classpathentry kind="lib" path="lib/Weighted.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

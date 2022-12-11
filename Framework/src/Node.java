@@ -9,7 +9,7 @@ public class Node {
     //#endif
     
     //#if Colored 
-//@    private String color;
+    private String color;
     //#endif
 
     public Node () {
@@ -26,9 +26,9 @@ public class Node {
     //#endif
     
     //#if Colored
-//@    	public String getColor() {
-//@    		return color;
-//@    	}
+    	public String getColor() {
+    		return color;
+    	}
     //#endif
     
     void addNext(Node node) {

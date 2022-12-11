@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <configuration>
-	<feature name="Framework"/>
-	<feature name="Base"/>
+	<feature automatic="selected" name="GraphRoot"/>
+	<feature automatic="selected" name="GraphArt"/>
+	<feature automatic="unselected" name="Directed"/>
+	<feature automatic="selected" manual="selected" name="Undirected"/>
+	<feature automatic="selected" manual="selected" name="Algorithmus"/>
+	<feature manual="selected" name="DFS"/>
+	<feature manual="selected" name="BFS"/>
+	<feature manual="selected" name="MST"/>
+	<feature automatic="selected" name="Markierung"/>
+	<feature manual="selected" name="Labled"/>
+	<feature manual="selected" name="Weighted"/>
+	<feature manual="selected" name="Colored"/>
+	<feature name="ShowColors"/>
+	<feature automatic="selected" name="Funktionen"/>
+	<feature automatic="selected" name="Adjazenzmatrix"/>
 </configuration>
