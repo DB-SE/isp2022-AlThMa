@@ -1,6 +1,13 @@
+package main;
+
 import java.util.Arrays;
 import java.util.List;
 
+import interfaces.IAlgorithms;
+import interfaces.IEdges;
+import interfaces.INodeMarkers;
+
+import loader.PluginLoader;
 
 public class GraphRoot {
 	
@@ -33,19 +40,14 @@ public class GraphRoot {
         
 		GraphArt graph = new GraphArt(edges, n);
 		
-		// #if DFS 
-		//graph.tiefensuche();
-		// #endif
+		System.out.println("Ausgaben:");
 		
-		// #if MST 
-//@		graph.minimalTree(graph);
-		// #endif
+		List<IAlgorithms> algorithmusPlugins = PluginLoader.load(IAlgorithms.class);
+		System.out.println(algorithmusPlugins.toString());
+		for (IAlgorithms algorithms : algorithmusPlugins) { 
+			algorithms.run(graph);
+		}
 		
-		System.out.println(graph.toAdjMatrix());
-		
-		// Farb Test
-		//System.out.println(ConsoleColors.RED + "RED COLORED" +
-		//		ConsoleColors.RESET + " NORMAL");
-	
+		System.out.println("\n Ende des Programms");
 	}
 }

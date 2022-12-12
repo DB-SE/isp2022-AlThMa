@@ -1,6 +1,6 @@
 package interfaces;
 
-public interface NodeMarkers {
+public interface INodeMarkers {
 	
 	public int getLabel();
 	public String getColor();

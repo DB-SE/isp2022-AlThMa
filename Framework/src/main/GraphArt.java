@@ -1,4 +1,13 @@
+package main;
+
 import java.util.*;
+
+import com.sun.source.util.Plugin;
+
+import interfaces.IAlgorithms;
+import interfaces.IEdges;
+import interfaces.INodeMarkers;
+import loader.PluginLoader;
 
 public class GraphArt {
     private List<List<Integer>> edgeList;
@@ -54,21 +63,22 @@ public class GraphArt {
     }
     
     public void addEdge(Edge edge, GraphArt g){
-        int n1 = edge.node1;
-        int n2 = edge.node2;
+    	
+		int n1 = edge.node1;
+		int n2 = edge.node2;
 
-        // falls Ein neuer Knoten finzugef?gt wurde:
-        int n = Math.max(g.getN(), Math.max(n1, n2));
+		// falls Ein neuer Knoten finzugef?gt wurde:
+		int n = Math.max(g.getN(), Math.max(n1, n2));
 
-        for (int i = edgeList.size(); i <= 3*n; i++) {
-            edgeList.add(new ArrayList<>());
-            for (int j = edgeList.get(i).size(); j <= 3*n; j++) {
-                edgeList.get(i).add(0);
-            }
-        }
+		for (int i = edgeList.size(); i <= 3*n; i++) {
+		    edgeList.add(new ArrayList<>());
+		    for (int j = edgeList.get(i).size(); j <= 3*n; j++) {
+		        edgeList.get(i).add(0);
+		    }
+		}
 
-        edgeList.get(n1).set(n2, edge.value);
-        edgeList.get(n2).set(n1, edge.value);
+		edgeList.get(n1).set(n2, edge.value);
+		edgeList.get(n2).set(n1, edge.value);
     }
     
 	// #if MST 

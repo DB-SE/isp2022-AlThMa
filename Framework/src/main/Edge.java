@@ -1,3 +1,5 @@
+package main;
+
 public class Edge {
     int node1, node2, value;
     boolean direction;

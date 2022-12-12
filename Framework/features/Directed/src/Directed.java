@@ -1,4 +1,8 @@
+import java.util.ArrayList;
+
+import interfaces.Edge;
 import interfaces.Edges;
+import interfaces.List;
 
 public class Directed implements Edges {
 
@@ -12,4 +16,10 @@ public class Directed implements Edges {
 		return 0;
 	}
 
+	@Override
+	public List<Edge> add (List<Edge> edgeList){
+		
+		return edgeList;
+	}
+	
 }
