@@ -1,18 +1,15 @@
 package interfaces;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import com.sun.tools.javac.util.List;
-
-import Ed;
+import main.Edge;
 
 public interface IEdges {
 
 	public boolean isDirected();
 	public int getWeight();
 	
-	public List<Edge> add (List<Edge>);
+	public List<Edge> add (List<Edge> edges);
 	
 }
-
-
