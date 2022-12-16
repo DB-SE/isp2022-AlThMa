@@ -7,51 +7,22 @@ import com.sun.source.util.Plugin;
 import interfaces.IAlgorithms;
 import interfaces.IEdges;
 import interfaces.INodeMarkers;
+import interfaces.IOutput;
 import loader.PluginLoader;
 
 public class GraphArt {
-    private List<List<Integer>> edgeList;
-    private List<List<Edge>> edges;
+    private List<List<Integer>> edgeList;	// Gewichte
+    private List<Node> nodes;				// Knoten
     private int n;
     
     // #if Colored
 //@    private List<Integer> colors;
     // #endif
 
-    public GraphArt(List<Edge> edges, int n) {
+    public GraphArt(int n) {
         this.n = n;
-
-        // Adjazenzmatrix
-        edgeList = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
-            edgeList.add(new ArrayList<>());
-            for (int j = 0; j < n; j++) {
-                edgeList.get(i).add(0);
-            }
-        }
-
-        // add all edges
-        for (Edge edge: edges) {
-            int n1 = edge.node1;
-            int n2 = edge.node2;
-
-            // #if Directed 
-            edgeList.get(n1).set(n2, edge.value);
-            edgeList.get(n2).set(n1, edge.value);
-            // #endif
-            
-            // #if Undirected 
-//@            edgeList.get(n1).set(n2, edge.value);
-            // #endif
-
-        }
-        
-     // #if Colored
-//@        colors = new ArrayList<>();
-//@        for (int i = 0; i < 30; i++) {
-//@        	colors.add(0 + (int)(Math.random() * (ConsoleColors.COLOR_ARRAY.length - 1)));
-//@        }
-     // #endif
+        this.edgeList = new ArrayList<>();
+        this.nodes = new ArrayList<>();
     }
     
     public int getN() {
@@ -62,23 +33,47 @@ public class GraphArt {
     	return edgeList;
     }
     
-    public void addEdge(Edge edge, GraphArt g){
+    public void addNode (Node node) {
+    	nodes.add(node);
+    }
+    
+    public void add(int node1, int node2, int weight){
     	
-		int n1 = edge.node1;
-		int n2 = edge.node2;
+    	int max = Math.max(node1, node2);
 
-		// falls Ein neuer Knoten finzugef?gt wurde:
-		int n = Math.max(g.getN(), Math.max(n1, n2));
+    	// Vergrˆﬂere die Adjazenzmatrix wenn nˆtig -> in beide Richtung gleichermaﬂen
+    	for (int i = edgeList.size(); i <= max; i++) {
+    		edgeList.add(new ArrayList<>());
+    	}
+    	
+    	for (int i = 0; i <= max; i++) {
+    		for (int j = edgeList.get(i).size(); j <= max; j++) {
+    			edgeList.get(i).add(0);
+    		}
+    	}
+    	
+    	for (int i = nodes.size(); i <= max; i++) {
+    		nodes.add(new Node());
+    	}
+    	
+    	// f¸ge die edge hinzu
+		//edgeList.get(node1).set(node2, weight);
+		//edgeList.get(node2).set(node1, weight);
+    	
+    	n = max;
+    	
+    	
+    	List<IEdges> iedgesPlugins = PluginLoader.load(IEdges.class);
 
-		for (int i = edgeList.size(); i <= 3*n; i++) {
-		    edgeList.add(new ArrayList<>());
-		    for (int j = edgeList.get(i).size(); j <= 3*n; j++) {
-		        edgeList.get(i).add(0);
-		    }
+    	// falls es keine Gewichte gibt, setzte alle gewichte auf 1
+    	for (IEdges iedges : iedgesPlugins) { 
+			if (iedges.classtyp() == "weighted" && !iedges.isWeighted()) weight = 1;
 		}
-
-		edgeList.get(n1).set(n2, edge.value);
-		edgeList.get(n2).set(n1, edge.value);
+    	// f¸ge je nach Feature eine beitseitige oder einseitige Verbindung hinzu:
+		for (IEdges iedges : iedgesPlugins) { 
+			if (iedges.classtyp() == "direction")
+				iedges.add(edgeList, node1, node2, weight);
+		}
     }
     
 	// #if MST 
@@ -175,38 +170,25 @@ public class GraphArt {
     }
     //#endif
       
-  	//#if Adjazenzmatrix
-
-    // Farbausgabe in Eclipse funktioniert nur mit Plugin "ANSI Escape in Console"
-    // Andernfalls das Feature bitte deaktivieren
   	public String toAdjMatrix() {
   		
-          StringBuilder out = new StringBuilder("  ");
-          for (int i = 0; i < n; i++) {
-        	  // #if ShowColors
-//@              out.append(ConsoleColors.COLOR_ARRAY[colors.get(i)][0]);
-              // #endif
-              out.append(i).append(" ");
-          }
-          out.append("\n");
-          for (int i = 0; i < n; i++) {
-        	  // #if ShowColors
-//@              out.append(ConsoleColors.COLOR_ARRAY[colors.get(i)][0]);
-              // #endif
-              out.append(i).append(" ");
-        	  // #if ShowColors
-//@              out.append(ConsoleColors.RESET);
-              // #endif
-              for (int j = 0; j < n; j++) {
-                  out.append(edgeList.get(i).get(j)).append(" ");
-              }
-        	  // #if ShowColors
-//@              out.append(ConsoleColors.RESET);
-              // #endif
-              out.append("\n");
-          }
-          out.append("");//TODO add ConsoleColors.RESET again
-          return String.valueOf(out);
+  		/*StringBuilder out = new StringBuilder("  ");
+        for (int i = 0; i < n; i++) {
+            out.append(i).append(" ");
+        }
+        out.append("\n");
+        for (int i = 0; i < n; i++) {
+            out.append(i).append(" ");
+            for (int j = 0; j < n; j++) {
+                out.append(edgeList.get(i).get(j)).append(" ");
+            }
+            out.append("\n");
+        }
+        out.append("\n");
+        return String.valueOf(out);*/
+  		
+  		List<IOutput> outPlugins = PluginLoader.load(IOutput.class);
+		return outPlugins.get(outPlugins.size()-1).toAdjMatrix(this);
+		
   	}
-  	//#endif
 }

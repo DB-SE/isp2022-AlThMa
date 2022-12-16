@@ -1,16 +1,25 @@
-import interfaces.Edges;
+import java.util.List;
 
-public class Undirected implements Edges {
+import interfaces.IEdges;
+import interfaces.List;
 
+public class Undirected implements IEdges {
+	
 	@Override
-	public boolean isDirected() {
+	public boolean isWeighted() {
+		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public int getWeight() {
+	public void add(List<java.util.List<Integer>> edges, int node1, int node2, int weight) {
 		// TODO Auto-generated method stub
-		return 0;
+		edges.get(node1).set(node2, weight);
 	}
-
+	
+	@Override
+	public String classtyp() {
+		// TODO Auto-generated method stub
+		return "direction";
+	}
 }
