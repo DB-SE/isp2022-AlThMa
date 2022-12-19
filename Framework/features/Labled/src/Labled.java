@@ -1,6 +1,8 @@
-import interfaces.NodeMarkers;
+package src;
 
-public class Labled implements NodeMarkers {
+import interfaces.INodeMarkers;
+
+public class Labled implements INodeMarkers {
 
 	@Override
 	public int getLabel() {

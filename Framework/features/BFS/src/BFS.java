@@ -1,21 +1,23 @@
+package src;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import interfaces.Algorithms;
+import interfaces.IAlgorithms;
 import main.GraphArt;
 import main.Node;
 
-public class BFS implements Algorithms {
+public class BFS implements IAlgorithms {
 
 	@Override
-	public ArrayList<Integer> run(GraphArt) {
-		// TODO Auto-generated method stub
+	public /*ArrayList<Integer>*/ void run(GraphArt graph) {
+		/*
 		List<Integer> nodes = new ArrayList<>();
     	LinkedList<Node> queue = new LinkedList<Node>();
     	List<Integer> visited = new ArrayList<>();
     	
-    	queue.add(start);
+    	queue.add(graph.);
     	nodes.add(start.getLabel());
     	visited.add(start.getLabel());
 
@@ -31,9 +33,10 @@ public class BFS implements Algorithms {
 				}
 			}
     		
-    	}
+    	}*/
     	
-    	return nodes;
+    	//System.out.println(nodes.toString());
+    	//return nodes;
 	}
 
 }

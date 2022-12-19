@@ -1,6 +1,8 @@
-import interfaces.NodeMarkers;
+package src;
 
-public class Colored implements NodeMarkers {
+import interfaces.INodeMarkers;
+
+public class Colored implements INodeMarkers {
 
 	@Override
 	public int getLabel() {

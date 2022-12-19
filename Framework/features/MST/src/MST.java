@@ -1,14 +1,19 @@
+package src;
+
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-import interfaces.Algorithms;
+import interfaces.IAlgorithms;
+import main.GraphArt;
 
-public class MST implements Algorithms {
+public class MST implements IAlgorithms {
 
 	@Override
-	public void run(GraphArt g) {
+	public void run(GraphArt graph) {
 		// TODO Auto-generated method stub
-		int n = g.getN();
-		List<List<Integer>> edgeList = g.getEdgeList();
+		/*int n = graph.getN();
+		List<List<Integer>> edgeList = graph.getEdgeList();
 		
 		boolean[] visited = new boolean[n]; // besuchte Nodes
 		List<Edge> edges = Collections.emptyList();
@@ -33,7 +38,7 @@ public class MST implements Algorithms {
 		System.out.println();
 		System.out.println("Minimal Baum");
 		System.out.println("\n");
-		System.out.println(mst.toAdjMatrix());
+		System.out.println(mst.toAdjMatrix());*/
 	}
 	
 	public void minimalTree(GraphArt g){
@@ -66,6 +71,6 @@ public class MST implements Algorithms {
 		//@          System.out.println("Minimal Baum");
 		//@          System.out.println("\n");
 		//@          System.out.println(mst.toAdjMatrix());
-		//@      }
+  }
 
 }

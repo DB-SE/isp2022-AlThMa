@@ -1,13 +1,17 @@
-import java.util.ArrayList;
+package src;
 
-import interfaces.Algorithms;
+import java.util.ArrayList;
+import java.util.List;
+
+import interfaces.IAlgorithms;
 import main.GraphArt;
 
-public class DFS implements Algorithms {
+public class DFS implements IAlgorithms {
 
 	@Override
 	public void run(GraphArt graph) {
 		// TODO Auto-generated method stub
+		int n = graph.getN();
 		boolean[] visited = new boolean[n]; // besuchte Nodes
 
         List<Integer> nodes = new ArrayList<>();
@@ -23,6 +27,7 @@ public class DFS implements Algorithms {
 	
 	private void tiefensuche(int node, boolean[] visited, List<Integer> nodeList, List<List<Integer>> edgeList) {
         visited[node] = true;
+        int n = 10;//graph.getN();
 
         System.out.print(node + " ");
         nodeList.add(node);
@@ -30,7 +35,7 @@ public class DFS implements Algorithms {
         for (int i = 0; i < n; i++) {
             if (edgeList.get(node).get(i) != 0) {
                 if (!visited[i]) {
-                    tiefensuche(i, visited, nodeList);
+                    //tiefensuche(i, visited, nodeList);
                 }
             }
         }

@@ -43,13 +43,13 @@ public class GraphRoot {
         System.out.println(graph.toAdjMatrix());
 		
 		System.out.println("Ausgaben:");
-		
+		/*
 		List<IAlgorithms> algorithmusPlugins = PluginLoader.load(IAlgorithms.class);
 		System.out.println(algorithmusPlugins.toString());
 		for (IAlgorithms algorithms : algorithmusPlugins) { 
 			algorithms.run(graph);
 		}
-		
+		*/
 		System.out.println("\n Ende des Programms");
 	}
 }

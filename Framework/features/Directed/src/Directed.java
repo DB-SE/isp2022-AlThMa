@@ -1,9 +1,8 @@
-
+package src;
 
 import java.util.List;
 
 import interfaces.IEdges;
-import interfaces.List;
 
 public class Directed implements IEdges {
 

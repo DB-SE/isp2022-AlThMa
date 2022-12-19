@@ -7,7 +7,7 @@ import com.sun.source.util.Plugin;
 import interfaces.IAlgorithms;
 import interfaces.IEdges;
 import interfaces.INodeMarkers;
-import interfaces.IOutput;
+//import interfaces.IOutput;
 import loader.PluginLoader;
 
 public class GraphArt {
@@ -41,7 +41,7 @@ public class GraphArt {
     	
     	int max = Math.max(node1, node2);
 
-    	// Vergrößere die Adjazenzmatrix wenn nötig -> in beide Richtung gleichermaßen
+    	// Vergrï¿½ï¿½ere die Adjazenzmatrix wenn nï¿½tig -> in beide Richtung gleichermaï¿½en
     	for (int i = edgeList.size(); i <= max; i++) {
     		edgeList.add(new ArrayList<>());
     	}
@@ -56,7 +56,7 @@ public class GraphArt {
     		nodes.add(new Node());
     	}
     	
-    	// füge die edge hinzu
+    	// fï¿½ge die edge hinzu
 		//edgeList.get(node1).set(node2, weight);
 		//edgeList.get(node2).set(node1, weight);
     	
@@ -69,7 +69,7 @@ public class GraphArt {
     	for (IEdges iedges : iedgesPlugins) { 
 			if (iedges.classtyp() == "weighted" && !iedges.isWeighted()) weight = 1;
 		}
-    	// füge je nach Feature eine beitseitige oder einseitige Verbindung hinzu:
+    	// fï¿½ge je nach Feature eine beitseitige oder einseitige Verbindung hinzu:
 		for (IEdges iedges : iedgesPlugins) { 
 			if (iedges.classtyp() == "direction")
 				iedges.add(edgeList, node1, node2, weight);
@@ -187,8 +187,9 @@ public class GraphArt {
         out.append("\n");
         return String.valueOf(out);*/
   		
-  		List<IOutput> outPlugins = PluginLoader.load(IOutput.class);
-		return outPlugins.get(outPlugins.size()-1).toAdjMatrix(this);
+  		//List<IOutput> outPlugins = PluginLoader.load(IOutput.class);
+		//return outPlugins.get(outPlugins.size()-1).toAdjMatrix(this);
+  		return "";
 		
   	}
 }

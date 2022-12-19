@@ -3,7 +3,7 @@ package interfaces;
 import java.util.ArrayList;
 import java.util.List;
 
-import main.Edge;
+//import main.Edge;
 
 public interface IEdges {
 	
