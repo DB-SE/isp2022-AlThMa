@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+	<feature automatic="selected" name="GraphRoot"/>
+	<feature automatic="selected" name="GraphArt"/>
+	<feature manual="selected" name="Directed"/>
+	<feature automatic="unselected" name="Undirected"/>
+	<feature name="Algortihmus"/>
+	<feature name="DFS"/>
+	<feature name="BFS"/>
+	<feature automatic="unselected" name="MST"/>
+	<feature name="Markierung"/>
+	<feature name="Labled"/>
+	<feature name="Weighted"/>
+	<feature name="Colored"/>
+	<feature name="ShowColors"/>
+	<feature name="Funktionen"/>
+	<feature name="Adjazenzmatrix"/>
+</configuration>
