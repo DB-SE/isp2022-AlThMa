@@ -12,6 +12,8 @@
 	</properties>
 	<struct>
 		<and abstract="true" mandatory="true" name="GraphRoot">
+			<graphics key="collapsed" value="false"/>
+			<feature mandatory="true" name="Base"/>
 			<alt abstract="true" mandatory="true" name="GraphArt">
 				<feature name="Directed"/>
 				<feature name="Undirected"/>

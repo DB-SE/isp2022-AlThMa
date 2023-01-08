@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <configuration>
 	<feature automatic="selected" name="GraphRoot"/>
+	<feature automatic="selected" name="Base"/>
 	<feature automatic="selected" name="GraphArt"/>
 	<feature manual="selected" name="Directed"/>
 	<feature automatic="unselected" name="Undirected"/>
