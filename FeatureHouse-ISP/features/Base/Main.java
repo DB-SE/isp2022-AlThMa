@@ -1,7 +1,8 @@
 import java.util.Arrays;
 import java.util.List;
+import java.util.ArrayList;
 
-public class main {
+public class Main {
 	
 	public static void main(String[] args) {
         
@@ -32,6 +33,6 @@ public class main {
         
         graph.addNode(new Node());
         
-        
 	}
-}
+}	
+

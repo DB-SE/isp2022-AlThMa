@@ -5,8 +5,8 @@
 	<feature automatic="selected" name="GraphArt"/>
 	<feature manual="selected" name="Directed"/>
 	<feature automatic="unselected" name="Undirected"/>
-	<feature automatic="selected" name="Algortihmus"/>
-	<feature manual="selected" name="DFS"/>
+	<feature name="Algortihmus"/>
+	<feature name="DFS"/>
 	<feature name="BFS"/>
 	<feature automatic="unselected" name="MST"/>
 	<feature name="Markierung"/>
