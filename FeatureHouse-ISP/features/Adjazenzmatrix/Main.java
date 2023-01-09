@@ -1,5 +1,10 @@
 public class Main {
 	
+	public static void main(String[] args) {
+		original();
+		System.out.println(graph.toAdjMatrix());
+	}
+	
   	public String toAdjMatrix() {
   		
         StringBuilder out = new StringBuilder("  ");

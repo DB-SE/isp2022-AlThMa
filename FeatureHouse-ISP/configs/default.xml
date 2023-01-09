@@ -5,8 +5,8 @@
 	<feature automatic="selected" name="GraphArt"/>
 	<feature manual="selected" name="Directed"/>
 	<feature automatic="unselected" name="Undirected"/>
-	<feature name="Algortihmus"/>
-	<feature name="DFS"/>
+	<feature automatic="selected" name="Algortihmus"/>
+	<feature manual="selected" name="DFS"/>
 	<feature name="BFS"/>
 	<feature automatic="unselected" name="MST"/>
 	<feature name="Markierung"/>
@@ -14,6 +14,6 @@
 	<feature name="Weighted"/>
 	<feature name="Colored"/>
 	<feature name="ShowColors"/>
-	<feature name="Funktionen"/>
-	<feature name="Adjazenzmatrix"/>
+	<feature automatic="selected" manual="selected" name="Funktionen"/>
+	<feature manual="selected" name="Adjazenzmatrix"/>
 </configuration>

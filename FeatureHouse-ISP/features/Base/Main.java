@@ -32,6 +32,6 @@ public class main {
         
         graph.addNode(new Node());
         
-        System.out.println(graph.toAdjMatrix());
+        
 	}
 }
