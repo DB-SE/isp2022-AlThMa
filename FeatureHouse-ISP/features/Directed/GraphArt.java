@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class Main {
+public class GraphArt {
 	
 	public boolean isWeighted() {
 		// TODO Auto-generated method stub

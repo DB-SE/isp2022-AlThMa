@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 
-public class Main {
+public class Graph {
 	
 	public static void main(String[] args) {
         
@@ -32,7 +32,6 @@ public class Main {
         graph.add(2, 7, 2);
         
         graph.addNode(new Node());
-        
 	}
 }	
 
