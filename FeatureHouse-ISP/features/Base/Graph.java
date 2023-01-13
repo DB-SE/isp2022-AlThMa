@@ -4,10 +4,12 @@ import java.util.ArrayList;
 
 public class Graph {
 	
+	public static GraphArt graph;
+	
 	public static void main(String[] args) {
         
 		int n = 10;
-		GraphArt graph = new GraphArt(n);
+		graph = new GraphArt(n);
 		
 		graph.add(1, 2, 6);
         graph.add(2, 3, 9);

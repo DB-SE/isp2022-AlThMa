@@ -14,6 +14,6 @@
 	<feature name="Weighted"/>
 	<feature name="Colored"/>
 	<feature name="ShowColors"/>
-	<feature name="Funktionen"/>
-	<feature name="Adjazenzmatrix"/>
+	<feature automatic="selected" name="Funktionen"/>
+	<feature manual="selected" name="Adjazenzmatrix"/>
 </configuration>

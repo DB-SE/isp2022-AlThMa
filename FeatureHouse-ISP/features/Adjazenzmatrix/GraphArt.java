@@ -1,9 +1,4 @@
-public class Graph {
-	
-	public static void main(String[] args) {
-		original();
-		System.out.println(graph.toAdjMatrix());
-	}
+public class GraphArt {
 	
   	public String toAdjMatrix() {
   		
