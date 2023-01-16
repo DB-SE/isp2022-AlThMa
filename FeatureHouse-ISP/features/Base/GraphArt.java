@@ -14,8 +14,12 @@ public class GraphArt {
 	    public int getN() {
 	    	return n;
 	    }
-	    
+	
 	    public void add(int node1, int node2, int weight){
+		    padd(node1, node2, 0);
+	    }
+	    
+	    private void padd(int node1, int node2, int weight){
 	    	
 	    	int max = Math.max(node1, node2);
 
