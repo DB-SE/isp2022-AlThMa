@@ -6,7 +6,7 @@
 	<feature manual="selected" name="Directed"/>
 	<feature automatic="unselected" name="Undirected"/>
 	<feature automatic="selected" name="Algortihmus"/>
-	<feature name="DFS"/>
+	<feature manual="selected" name="DFS"/>
 	<feature manual="selected" name="BFS"/>
 	<feature automatic="unselected" name="MST"/>
 	<feature name="Markierung"/>

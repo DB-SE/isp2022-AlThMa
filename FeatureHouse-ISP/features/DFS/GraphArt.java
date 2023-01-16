@@ -1,13 +1,14 @@
 import java.util.List;
 import java.util.ArrayList;
 
-public class Main {
-	public void run(GraphArt graph) {
+public class GraphArt {
+	
+	public void runDFS(GraphArt graph) {
 		// TODO Auto-generated method stub
 		int n = graph.getN();
 		boolean[] visited = new boolean[n]; // besuchte Nodes
 
-        List<Integer> nodes = new ArrayList<>();
+        List<Integer> nodes = new ArrayList<Integer>();
 
         // Von allen Knoten geht man zu allen Knoten, bis man alle Knoten besucht hat
         for (int i = 0; i < n; i++) {
