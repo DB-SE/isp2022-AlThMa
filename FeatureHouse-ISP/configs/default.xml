@@ -13,7 +13,6 @@
 	<feature name="Labled"/>
 	<feature name="Weighted"/>
 	<feature name="Colored"/>
-	<feature name="ShowColors"/>
 	<feature automatic="selected" name="Funktionen"/>
 	<feature automatic="selected" manual="selected" name="Adjazenzmatrix"/>
 </configuration>
