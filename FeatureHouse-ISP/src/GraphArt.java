@@ -81,9 +81,9 @@ import java.util.List; import java.util.ArrayList; public   class  GraphArt {
 	
 	public List<Integer> breitensuche(Node start) {
     	
-    	List<Integer> nodes = new List<Integer>();
+    	List<Integer> nodes = new ArrayList<Integer>();
     	LinkedList<Node> queue = new LinkedList<Node>();
-    	List<Integer> visited = new List<Integer>();
+    	List<Integer> visited = new ArrayList<Integer>();
     	
     	queue.add(start);
     	nodes.add(start.getLabel());
@@ -106,6 +106,11 @@ import java.util.List; import java.util.ArrayList; public   class  GraphArt {
     	return nodes;
     	
     }
+
+	
+	public Node getFirstNode() {
+		return nodes.get(0);
+	}
 
 	
 	
