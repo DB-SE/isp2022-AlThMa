@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Main {
+public class Graph {
 	
 	@Override
 	public void add(List<List<Integer>> edges, int node1, int node2, int weight) {
