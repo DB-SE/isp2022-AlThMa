@@ -4,9 +4,9 @@ public class GraphArt {
 	
 	private int weight = 0;
 	
-	public void add(List<List<Integer>> edges, int node1, int node2, int weight) {
-		original(edges,node1,node2,weight);
-		this.weight = weight;
+	@Override
+	public void add(int node1, int node2, int weight){
+		 padd(node1, node2, weight);
 	}
 
 	public boolean isWeighted() {
