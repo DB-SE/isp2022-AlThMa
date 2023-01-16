@@ -5,7 +5,7 @@ public class GraphArt {
 	private int weight = 0;
 	
 	@Override
-	public void add(int node1, int node2, int weight){
+	private void padd(int node1, int node2, int weight){
 		 padd(node1, node2, weight);
 	}
 

@@ -3,16 +3,16 @@
 	<feature automatic="selected" name="GraphRoot"/>
 	<feature automatic="selected" name="Base"/>
 	<feature automatic="selected" name="GraphArt"/>
-	<feature automatic="unselected" name="Directed"/>
-	<feature automatic="selected" manual="selected" name="Undirected"/>
-	<feature automatic="selected" name="Algortihmus"/>
-	<feature manual="selected" name="DFS"/>
-	<feature manual="selected" name="BFS"/>
-	<feature manual="selected" name="MST"/>
+	<feature manual="selected" name="Directed"/>
+	<feature automatic="unselected" name="Undirected"/>
+	<feature name="Algortihmus"/>
+	<feature name="DFS"/>
+	<feature name="BFS"/>
+	<feature automatic="unselected" name="MST"/>
 	<feature name="Markierung"/>
 	<feature name="Labled"/>
 	<feature name="Weighted"/>
 	<feature name="Colored"/>
-	<feature automatic="selected" name="Funktionen"/>
-	<feature automatic="selected" manual="selected" name="Adjazenzmatrix"/>
+	<feature name="Funktionen"/>
+	<feature name="Adjazenzmatrix"/>
 </configuration>
